@@ -1,0 +1,46 @@
+{
+  "name": "appiumsample",
+  "version": "1.0.0",
+  "description": "Appium sample project in Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test:android": "mocha ./tests --recursive --timeout 300000",
+    "test:ios": "PLATFORM=ios mocha ./tests --recursive --timeout 300000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Peter-Nagy/Appium-Parallel-Testing.git"
+  },
+  "keywords": [
+    "appium",
+    "sample",
+    "android",
+    "ios",
+    "test",
+    "testing",
+    "node",
+    "nodejs"
+  ],
+  "author": "Péter Szabolcs Nagy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Peter-Nagy/Appium-Parallel-Testing/issues"
+  },
+  "homepage": "https://github.com/Peter-Nagy/Appium-Parallel-Testing#readme",
+  "dependencies": {
+    "appium-controller": "^1.1.6",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "colors": "1.1.2",
+    "express": "4.16.2",
+    "generic-pool": "^3.4.1",
+    "mocha": "^4.0.1",
+    "q": "^1.5.1",
+    "underscore": "^1.8.3",
+    "wd": "^1.4.1",
+    "wd-bridge": "0.0.2"
+  },
+  "devDependencies": {
+    "ava": "^0.25.0"
+  }
+}

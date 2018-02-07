@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="nagy.szabolcs.peter.calculator.MainActivity">
+
+    <TextView
+        android:text="0"
+        android:textAlignment="center"
+        android:id="@+id/resultLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/leftEditText"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/rightEditText"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:inputType="number"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add" />
+
+</LinearLayout>
