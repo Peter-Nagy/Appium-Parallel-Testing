@@ -1,6 +1,5 @@
-require('chai').should();
+const test = require('ava');
 const DriverPool = require('../helpers/pool');
-
 const elements = require('../helpers/elements');
 
 const sum = async (number1, number2, driver) => {
@@ -16,27 +15,28 @@ const sum = async (number1, number2, driver) => {
     return resultLabel.text();
 };
 
-describe('Sample calculator tests', () => {
-    it('Should add two positive integers', async () => {
-        const driver = await DriverPool.acquire();
-        '3'.should.be.equal('3');
-        return;
-        const result = await sum(1, 2, driver);
-        result.should.be.equal('3');
-    });
-    it('Should add two positive fractions', async () => {
-        const driver = await DriverPool.acquire();
-        '3'.should.be.equal('3');
-        DriverPool.release(driver);
-        return;
-        const result = await sum(1.5, 2.6, driver);
-        result.should.be.equal('4.1');
-    });
-    it('Should add a positive and a negative integer', async () => {
-        const driver = await DriverPool.acquire();
-        '3'.should.be.equal('3');
-        return;
-        const result = await sum(-1, 1, driver);
-        result.should.be.equal('0');
-    });
+test.beforeEach(async t => {
+    t.driver = await DriverPool.acquire();
+});
+
+test.afterEach(async t => {
+    await DriverPool.release(t.driver);
+});
+
+test(async t => {
+    const { driver } = t;
+    const result = await sum(1, 2, driver);
+    t.is(result, '3');
+});
+
+test(async t => {
+    const { driver } = t;
+    const result = await sum(1.5, 2.6, driver);
+    t.is(result, '4.1');
+});
+
+test(async t => {
+    const { driver } = t;
+    const result = await sum(-1, 1, driver);
+    t.is(result, '0');
 });

@@ -4,8 +4,8 @@
   "description": "Appium sample project in Node.js",
   "main": "index.js",
   "scripts": {
-    "test:android": "mocha ./tests --recursive --timeout 300000",
-    "test:ios": "PLATFORM=ios mocha ./tests --recursive --timeout 300000"
+    "test:android": "ava --timeout 300000",
+    "test:ios": "PLATFORM=ios ava --timeout 300000"
   },
   "repository": {
     "type": "git",
@@ -42,5 +42,14 @@
   },
   "devDependencies": {
     "ava": "^0.25.0"
+  },
+  "ava": {
+      "files": [
+          "tests/*.js"
+      ],
+      "failFast": true,
+      "failWithoutAssertions": false,
+      "tap": true,
+      "powerAssert": false
   }
 }
